@@ -10,7 +10,7 @@ from QAWithPDF.logger import logging
 load_dotenv()
 
 GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
-print(GOOGLE_API_KEY)
+
 
 genai.configure(api_key=GOOGLE_API_KEY)
 

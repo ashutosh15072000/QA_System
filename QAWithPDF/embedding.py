@@ -26,7 +26,6 @@ def download_gemini_embedding(model,document):
 
         logging.info("Storing Vector Embeddings.....")
         index = VectorStoreIndex.from_documents(document,service_context=service_context)
-        print(index)
         index.storage_context.persist()
 
 

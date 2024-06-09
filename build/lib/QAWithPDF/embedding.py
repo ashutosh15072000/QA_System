@@ -20,12 +20,15 @@ def download_gemini_embedding(model,document):
 
     try:
         logging.info("Creating Embedding.....")
-        gemini_embed_model=GeminiEmbedding(model_name="models/embedding-001")
-        service_context=ServiceContext.from_defaults(llm=model,embed_model=gemini_embed_model,chunk_size=800,chunk_overlap=20)
+        gemini_embed_model = GeminiEmbedding(model_name="models/embedding-001")
+        service_context = ServiceContext.from_defaults(llm=model,embed_model=gemini_embed_model, chunk_size=800, chunk_overlap=20)
+        
 
         logging.info("Storing Vector Embeddings.....")
-        index=VectorStoreIndex.from_documents(document,service_context=service_context)
+        index = VectorStoreIndex.from_documents(document,service_context=service_context)
         index.storage_context.persist()
+
+
 
         logging.info("Query Engine......")
         query_engine=index.as_query_engine()

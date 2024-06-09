@@ -11,6 +11,7 @@ load_dotenv()
 
 GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
 
+
 genai.configure(api_key=GOOGLE_API_KEY)
 
 def load_model():
@@ -22,7 +23,7 @@ def load_model():
     """
      try:
           logging.info("Loading Model......")
-          model=Gemini(model='gemini-pro',api_key=GOOGLE_API_KEY)
+          model=Gemini(model="models/gemini-pro")
           return model
      
      except Exception as e:
